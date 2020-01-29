@@ -8,7 +8,8 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const accounts = await db("accounts");
-    res.json(accounts);
+    console.log(accounts);
+    res.status(200).json(accounts);
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -40,8 +41,7 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const rowsUpdated = await db
-      .update("accounts")
+    const rowsUpdated = await db("accounts")
       .where("id", req.params.id)
       .update(req.body);
     res.json({ updated: rowsUpdated });
