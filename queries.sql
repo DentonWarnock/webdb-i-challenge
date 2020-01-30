@@ -10,7 +10,7 @@ SELECT * FROM [Suppliers] WHERE SupplierID = 11;
 SELECT * FROM [Orders] ORDER BY OrderDate DESC LIMIT 10;
 
 -- Find all customers that live in London, Madrid, or Brazil
-SELECT * FROM Customers WHERE City = 'London' or City = 'Madrid' or Country = 'Brazil';
+SELECT * FROM [Customers] WHERE City = 'London' or City = 'Madrid' or Country = 'Brazil';
 
 -- Add a customer record for "The Shire", the contact name is "Bilbo Baggins" the address is -"1 Hobbit-Hole" in "Bag End", postal code "111" and the country is "Middle Earth"
 INSERT INTO [Customers] (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('The Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag End', '111', 'Middle Earth');
@@ -19,7 +19,7 @@ INSERT INTO [Customers] (CustomerName, ContactName, Address, City, PostalCode, C
 UPDATE Customers SET PostalCode = 11122 WHERE CustomerID = 92;
 
 -- (Stretch) Find a query to discover how many different cities are stored in the Customers table. Repeats should not be double counted
-SELECT COUNT (distinct City) FROM customers;
+SELECT COUNT (distinct City) FROM Customers;
 
 -- (Stretch) Find all suppliers who have names longer than 20 characters. You can use `length(SupplierName)` to get the length of the name
 SELECT * FROM [Suppliers] WHERE length(SupplierName) > 20;
